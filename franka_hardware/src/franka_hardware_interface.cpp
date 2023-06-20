@@ -57,6 +57,7 @@ std::vector<StateInterface> FrankaHardwareInterface::export_state_interfaces() {
       k_robot_name, k_robot_model_interface_name,
       reinterpret_cast<double*>(  // NOLINT(cppcoreguidelines-pro-type-reinterpret-cast)
           &hw_franka_model_ptr_)));
+
   for (auto& sensor : info_.sensors) {
     for (uint j = 0; j < sensor.state_interfaces.size(); ++j) {
       state_interfaces.emplace_back(hardware_interface::StateInterface(
