@@ -41,14 +41,14 @@ Robot::Robot(const std::string& robot_ip, const rclcpp::Logger& logger) {
       {20.0, 20.0, 18.0, 18.0, 16.0, 14.0, 12.0}};
   std::array<double, 6> lower_force_thresholds_acceleration{{20.0, 20.0, 20.0, 25.0, 25.0, 25.0}};
   std::array<double, 6> upper_force_thresholds_acceleration{{20.0, 20.0, 20.0, 25.0, 25.0, 25.0}};
-  robot_->setCollisionBehavior(
-      lower_torque_thresholds_acceleration, upper_torque_thresholds_acceleration,
-      lower_force_thresholds_acceleration, upper_force_thresholds_acceleration);
+  /* robot_->setCollisionBehavior( */
+  /*     lower_torque_thresholds_acceleration, upper_torque_thresholds_acceleration, */
+  /*     lower_force_thresholds_acceleration, upper_force_thresholds_acceleration); */
   // set collision behavior
-  /* robot_->setCollisionBehavior({{100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0}}, */
-  /*                            {{100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0}}, */
-  /*                            {{100.0, 100.0, 100.0, 100.0, 100.0, 100.0}}, */
-  /*                            {{100.0, 100.0, 100.0, 100.0, 100.0, 100.0}}); */
+  robot_->setCollisionBehavior({{100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0}},
+                             {{100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0}},
+                             {{100.0, 100.0, 100.0, 100.0, 100.0, 100.0}},
+                             {{100.0, 100.0, 100.0, 100.0, 100.0, 100.0}});
 }
 
 void Robot::write_efforts(const std::array<double, 7>& efforts) {
